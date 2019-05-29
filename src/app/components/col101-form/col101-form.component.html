@@ -1,0 +1,184 @@
+<header class="col101-header">
+  <aside class="aside-top">
+    <section class="d-block col101-container-form-x-50 ta-center">
+      <h2 class="color-primary">{{header[1].title}}</h2>
+      <span>{{header[1].subtitle}}</span>
+    </section>
+  </aside>
+  <article class="col101-container">
+    <header class="col101-container-header">
+      <section>
+        <h3>{{header[0].title}}</h3>
+        <span>NIT {{header[0].nit}}</span>
+      </section>
+      <section>
+        <svg xmlns="http://www.w3.org/2000/svg" width="180px" height="80px" version="1.1" x="0" y="0" viewBox="0 0 510.2 226.8" enable-background="new 0 0 510.2 226.8" xml:space="preserve"><rect x="0" y="0" fill="#003781" width="510.2" height="226.8"></rect><path fill="#FFFFFF" d="M91.9 114.2H78.3l7.3-23.7L91.9 114.2zM71.2 140.4l4.7-15.6h18.4l4.4 15.6h17L98.7 81c-1-3.5-3.1-5.1-6.8-5.1H67.8v5.6h2c2.5 0 3.9 1 3.9 2.9 0 1.3-0.3 2.3-1.3 5.2l-16.9 50.8H71.2zM135.3 140.4V80.8c0-3.1-1.8-4.9-4.8-4.9h-14.9v5.6h1c2.5 0 3.6 1.1 3.6 3.6v55.4H135.3zM161.1 140.4V80.8c0-3.1-1.8-4.9-4.8-4.9h-14.9v5.6h0.9c2.5 0 3.6 1.1 3.6 3.6v55.4H161.1zM187.6 81.7c0-4.3-3.2-7-8.7-7 -5.4 0-8.7 2.6-8.7 7 0 4.4 3.3 7 8.7 7C184.4 88.7 187.6 86.1 187.6 81.7M187.3 140.4V96.9c0-3.1-1.8-4.9-4.9-4.9h-14.7v5.5h0.9c2.5 0 3.6 1.2 3.6 3.7v39.2H187.3zM220.6 117.1v9.4c-2.5 2.6-5.6 4.2-8.2 4.2 -2.7 0-3.7-1.3-3.7-5 0-3.6 0.8-5.2 3.5-6.3C214.2 118.6 216.8 117.9 220.6 117.1M200.2 105.8c5-2.4 10.6-3.8 14.9-3.8 4.1 0 5.5 1.5 5.5 5.7v1.1c-6.2 1-8.1 1.4-11.6 2.1 -2 0.5-3.9 1-5.7 1.8 -6.1 2.4-9 7.2-9 14.4 0 9.2 4 13.6 12.2 13.6 3 0 5.7-0.6 8.1-1.5 2.1-0.9 3.4-1.7 6.5-4.2v0.7c0 3 1.5 4.5 4.5 4.5h13.8v-5.2h-0.7c-2.6 0-3.6-1.2-3.6-4.3v-23.1c0-12.3-4.3-16.6-16.6-16.6 -4 0-7.8 0.5-11.6 1.4 -3.8 0.9-5.7 1.6-10.3 3.9L200.2 105.8zM261.5 140.4v-32.7c2.5-2.8 5.1-4.1 8.1-4.1 3.2 0 4 1.3 4 6.1v30.7h15.1v-32.9c0-7.7-0.6-10.1-3-12.7 -2-2.2-5.1-3.4-9.1-3.4 -5.9 0-10.1 1.8-15.7 7.1v-1.9c0-3-1.6-4.6-4.7-4.6H242v5.5h0.9c2.5 0 3.6 1.2 3.6 3.7v39.2H261.5zM333.6 130.2h-21.1l20.1-28.3V92H301c-3.6 0-5.2 1.6-5.2 5.2v8.8h5.6v-0.9c0-2.2 1.2-3.3 3.6-3.3h10.9l-20.3 28.6v10h38V130.2zM412.8 139.2V84.4c0-4.4-1.5-5.8-5.8-5.8h-12.8v6.1h0.8c2.9 0 3.5 0.7 3.5 4.2v50.3H412.8zM419.1 139.2h14.2V96.5c0-4.3-1.7-5.8-5.8-5.8h-8.4V139.2zM392.2 139.2V90.7h-8.4c-4.2 0-5.8 1.5-5.8 5.8v42.6H392.2zM446.8 111.3c0 24.1-17.3 41.6-41.1 41.6 -23.8 0-41.2-17.5-41.2-41.6 0-24.1 17.3-41.6 41.2-41.6C429.5 69.7 446.8 87.3 446.8 111.3M455.2 111.3c0-28.4-21.2-49.6-49.6-49.6 -28.4 0-49.6 21.2-49.6 49.6 0 28.4 21.2 49.6 49.6 49.6C434 160.9 455.2 139.7 455.2 111.3"></path></svg>
+      </section>
+    </header>
+    <mat-divider></mat-divider>
+    <footer class="col101-container-footer d-block ta-center">
+      {{header[2].text}}
+    </footer>
+  </article>
+</header>
+<article class="col101-container">
+  <form class="col101-container-form" [formGroup]="col101Form" (ngSubmit)="submitCol101()">
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-d-3 col101-container-form-m-4 col101-container-form-p-10">
+      <mat-label>Fecha de diligenciamiento</mat-label>
+      <input matInput [matDatepicker]="dateCompletionPicker" formControlName="dateCompletion" required>
+      <mat-datepicker-toggle matSuffix [for]="dateCompletionPicker"></mat-datepicker-toggle>
+      <mat-datepicker #dateCompletionPicker startView="multi-year" touchUi="true"></mat-datepicker>
+      <!-- <mat-hint *ngIf="dateCompletion.touched && dateCompletion.errors?.required">Campo requerido</mat-hint> -->
+    </mat-form-field>
+    <span class="radio-container col101-container-form-x-6 col101-container-form-d-5 col101-container-form-m-6 col101-container-form-t-7 col101-container-form-p-10 mat-form-field ng-tns-c4-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder">
+      <mat-radio-group class="radio-group" formControlName="actionForm" required>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-4 col101-container-form-sp-10" value="ingreso">Ingreso</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-5 col101-container-form-sp-10" value="incremento">Incremento de valor asegurado</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-4 col101-container-form-sp-10" value="asegurado">Asegurado principal</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-5 col101-container-form-sp-10" value="familiar">Familiar asegurado principal</mat-radio-button>
+      </mat-radio-group>
+    </span>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-p-10">
+      <mat-label>Póliza N°</mat-label>
+      <input type="number" matInput formControlName="policyNumber" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-8 col101-container-form-m-7 col101-container-form-p-10">
+      <mat-label>Razón Social de la Entidad Tomadora</mat-label>
+      <input type="text" matInput formControlName="takerEntityName" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-p-10">
+      <mat-label>CC o Nit</mat-label>
+      <input type="text" matInput formControlName="takerDocumentNumber" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-d-4 col101-container-form-p-10">
+      <mat-label>Nombre Solicitante del Seguro</mat-label>
+      <input type="text" matInput formControlName="applicantName" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-d-3 col101-container-form-p-10">
+      <mat-label>Primer Apellido</mat-label>
+      <input type="text" matInput formControlName="applicantFirstLastName" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-d-3 col101-container-form-p-10">
+      <mat-label>Segundo Apellido</mat-label>
+      <input type="text" matInput formControlName="applicantSecondLastName" />
+    </mat-form-field>
+    <span [class.error-control]="applicantDocumentType.invalid" class="radio-group col101-container-form-x-2 col101-container-form-d-3 col101-container-form-t-4 col101-container-form-p-10">
+      <label class="col101-container-form-x-10 ta-center d-block">Tipo de Documento</label>
+      <mat-radio-group class="radio-group ta-center" formControlName="applicantDocumentType" required >
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-3" value="CC">CC</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-3" value="CE">CE</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button col101-container-form-x-3" value="NUIP">NUIP</mat-radio-button>
+      </mat-radio-group>
+    </span>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-4 col101-container-form-t-3 col101-container-form-p-10">
+      <mat-label>N° de Documento</mat-label>
+      <input type="text" matInput formControlName="applicantDocumentNumber" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-p-10">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="applicantBirthDatePicker" formControlName="applicantBirthDate" required>
+      <mat-datepicker-toggle matSuffix [for]="applicantBirthDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #applicantBirthDatePicker startView="multi-year" touchUi="true"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-4 col101-container-form-d-3 col101-container-form-m-4 col101-container-form-p-10">
+      <mat-label>Dirección Particular</mat-label>
+      <input type="text" matInput formControlName="applicantAddress" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-p-10">
+      <mat-label>Teléfono</mat-label>
+      <input type="tel" matInput formControlName="applicantPhone" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-p-10">
+      <mat-label>Ciudad</mat-label>
+      <input type="text" matInput formControlName="applicantCity" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-3 col101-container-form-t-4 col101-container-form-p-10">
+      <mat-label>Valor Asegurado Actual</mat-label>
+      <input type="number" matInput formControlName="insuredValue" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-d-4 col101-container-form-t-6 col101-container-form-p-10">
+      <mat-label>Solicitud de Incremento de valor asegurado A</mat-label>
+      <input type="number" matInput formControlName="requestIncreaseInsuredValue" required />
+    </mat-form-field>
+    <span class="radio-group col101-container-form-x-2 col101-container-form-d-3 col101-container-form-t-4 col101-container-form-p-10">
+      <label class="col101-container-form-x-10 ta-center d-block">Sexo</label>
+      <mat-radio-group class="radio-group ta-center" formControlName="applicantSex" required >
+        <mat-radio-button color="primary" class="radio-button" value="M">Masculino</mat-radio-button>
+        <mat-radio-button color="primary" class="radio-button" value="F">Femenino</mat-radio-button>
+      </mat-radio-group>
+    </span>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-2 col101-container-form-t-3 col101-container-form-p-5">
+      <mat-label>Estatura</mat-label>
+      <input type="number" matInput formControlName="applicantHeight" required />
+      <span matSuffix>Mts.</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-2 col101-container-form-m-2 col101-container-form-t-3 col101-container-form-p-5">
+      <mat-label>Peso</mat-label>
+      <input type="number" matInput formControlName="applicantWeight" required />
+      <span matSuffix>Kgs.</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-5 col101-container-form-d-3 col101-container-form-t-7 col101-container-form-p-10">
+      <mat-label>Ocupación actual detallada</mat-label>
+      <input type="text" matInput formControlName="applicantOccupation" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col101-container-form-x-3 col101-container-form-p-10">
+      <mat-label>Deporte que practica</mat-label>
+      <input type="text" matInput formControlName="applicantSport" required />
+    </mat-form-field>
+    <app-beneficiaries-table class="col101-container-form-x-10"></app-beneficiaries-table>
+    <h3 class="col101-container-form-x-10">Seleccione</h3>
+    <span class="col101-container-form-x-10">Yo, el abajo firmante declaro que:</span>
+    <mat-checkbox formControlName="healthDisclaimer" required color="primary" class="col101-container-form-x-10 unset-wrap">En la fecha me encuentro en buen estado de salud y mi habilidad fisica no se encuentra de alguna manera reducida</mat-checkbox>
+    <mat-checkbox formControlName="ilnes" color="primary" class="col101-container-form-x-10 unset-wrap">Padezco o he padecido las lesiones o enfermedades que a continuación selecciono</mat-checkbox>
+    <span class="col101-container-form-x-9 d-block" formGroupName="ilnesList">
+      <mat-checkbox formControlName="mental" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Mentales-psiquiatricas</mat-checkbox>
+      <mat-checkbox formControlName="intestine" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Gastrointestinales</mat-checkbox>
+      <mat-checkbox formControlName="drugs" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Cardiovasculares</mat-checkbox>
+      <mat-checkbox formControlName="heart" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Cerebrovasculares</mat-checkbox>
+      <mat-checkbox formControlName="brain" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Drogadicción</mat-checkbox>
+      <mat-checkbox formControlName="arterialHypertension" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Hipertensión Arterial</mat-checkbox>
+      <mat-checkbox formControlName="lungs" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Pulmonares</mat-checkbox>
+      <mat-checkbox formControlName="arthritis" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Artritis</mat-checkbox>
+      <mat-checkbox formControlName="cancer" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Cáncer</mat-checkbox>
+      <mat-checkbox formControlName="kidney" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Renales</mat-checkbox>
+      <mat-checkbox formControlName="aids" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Sida</mat-checkbox>
+      <mat-checkbox formControlName="diabetes" color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10">Diabetes</mat-checkbox>
+      <span class="col101-container-form-x-3 d-inline-block col101-container-form-p-5">
+          <mat-checkbox formControlName="smoking" color="primary" class="col101-container-form-x-10">Tabaquismo</mat-checkbox>
+          <span class="col101-container-form-x-9 d-block">
+            <label class="col101-container-form-x-10 d-block">Cigarrillos diarios</label>
+            <mat-radio-group class="radio-group" formControlName="dailyCigarettes">
+              <mat-radio-button color="primary" class="radio-button-block" value="t1">5 o menos</mat-radio-button>
+              <mat-radio-button color="primary" class="radio-button-block" value="t2">6 a 20</mat-radio-button>
+              <mat-radio-button color="primary" class="radio-button-block" value="t3">21 o más</mat-radio-button>
+            </mat-radio-group>
+          </span>
+      </span>
+      <span class="col101-container-form-x-3 d-inline-block col101-container-form-p-5">
+        <mat-checkbox formControlName="alcoholism" color="primary" class="col101-container-form-x-10">Alcoholismo</mat-checkbox>
+        <span class="col101-container-form-x-9 d-block">
+          <label>Tragos semanales</label>
+          <mat-radio-group class="radio-group" formControlName="weeklyDrinks">
+            <mat-radio-button color="primary" class="radio-button-block" value="a1">5 o menos</mat-radio-button>
+            <mat-radio-button color="primary" class="radio-button-block" value="a2">6 a 20</mat-radio-button>
+            <mat-radio-button color="primary" class="radio-button-block" value="a3">21 o más</mat-radio-button>
+          </mat-radio-group>
+        </span>
+      </span>
+      <span class="col101-container-form-x-3 d-inline-block col101-container-form-p-10">
+        <mat-checkbox formControlName="anotherDisease" color="primary" class="col101-container-form-x-10 d-block col101-container-form-p-10">Otra enfermedad</mat-checkbox>
+        <mat-form-field class="col101-container-form-x-10 d-block col101-container-form-p-10">
+          <mat-label>Cual</mat-label>
+          <input type="text" matInput formControlName="whichDisease" required />
+        </mat-form-field>
+      </span>
+    </span>
+    <!-- <span class="col101-container-form-x-10 d-block">
+      <span class="col101-container-form-x-10 d-block">En caso de haber padecido alguna enfermedad de las mencionadas anteriormente explique:</span>
+    </span> -->
+    <footer class="col101-footer">
+      <mat-checkbox #chkDeshabilitar color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10" style="display: none;">Deshabilitar boton</mat-checkbox>
+      <button type="submit" [disabled]="chkDeshabilitar.checked && col101Form.invalid" mat-raised-button color="primary" class="d-block">Validar información</button>
+    </footer>
+  </form>
+</article>

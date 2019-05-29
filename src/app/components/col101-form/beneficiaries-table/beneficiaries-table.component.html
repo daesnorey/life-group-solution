@@ -1,0 +1,47 @@
+<h4>CUADRO DE BENEFICIARIOS</h4>
+<article class="container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Surname Column -->
+    <ng-container matColumnDef="surname" sticky>
+      <th mat-header-cell *matHeaderCellDef> PRIMER APELLIDO </th>
+      <td mat-cell *matCellDef="let element"> {{element.surname}} </td>
+    </ng-container>
+
+    <!-- Lastname Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> SEGUNDO APELLIDO </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> NOMBRES </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Document Column -->
+    <ng-container matColumnDef="document">
+      <th mat-header-cell *matHeaderCellDef> N° DOCUMENTO </th>
+      <td mat-cell *matCellDef="let element"> {{element.document}} </td>
+    </ng-container>
+
+    <!-- Percent Column -->
+    <ng-container matColumnDef="percent">
+      <th mat-header-cell *matHeaderCellDef> % PARTICIPACIÓN </th>
+      <td mat-cell *matCellDef="let element"> {{element.percent / 100 | percent}} </td>
+    </ng-container>
+
+    <!-- Kinship Column -->
+    <ng-container matColumnDef="kinship" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef> PARENTESCO </th>
+      <td mat-cell *matCellDef="let element"> {{element.kinship}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</article>

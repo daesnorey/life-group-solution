@@ -1,0 +1,57 @@
+.container {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 89vh;
+
+    .nav-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        width: 50%;
+        margin: auto;
+        padding-top: calc(50vh - 100px);
+
+        @media (max-width: 993px) {
+            width: 65%;
+        }
+
+        @media (max-width: 873px) {
+            width: 95%;
+        }
+
+        @media (max-width: 434px) {
+            width: 95%;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-content: space-around;
+            padding-top: calc(20vh);
+
+            .button-item {
+                margin: auto;
+            }
+
+            .button-item:nth-child(even) {
+                margin-top: 3em;
+                margin-bottom: 3em;
+            }
+        }
+
+        .button-item {
+            width: 200px;
+            height: 200px;
+
+            .icon {
+                font-size: 80px;
+                width: auto;
+                height: auto;
+            }
+
+            .span-desc {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}

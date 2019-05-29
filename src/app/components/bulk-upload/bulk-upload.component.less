@@ -1,0 +1,116 @@
+.section-container {
+    display: block;
+    margin:auto;
+    width: 100%;
+    height: 65vh;
+}
+
+.file-upload-card {
+    display: block;
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 0;
+
+    .file-upload-article {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        section {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            input[type=file] {
+                display: none;
+            }
+    
+            label {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                cursor: pointer;
+    
+                span {
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    left: 0;
+                    top: calc(25% - 12px);
+                    user-select: none;
+                    pointer-events: none;
+
+                    mat-icon {
+                        height: 100%;
+                        width: 100%;
+                        font-size: 200px;
+                    }
+                }
+    
+                &:focus {
+                    outline: 1px dotted #000;
+                    outline: -webkit-focus-ring-color auto 5px;
+                }
+            }
+        }
+
+
+        .article-progress-spinner {
+            display: block;
+            width: 100%;
+
+            .section-progress-spinner {
+                display: block;
+                width: 100%;
+                margin: auto;
+                text-align: center;
+    
+                .progress-spinner {
+                    margin: auto;
+                    position: relative;
+
+                    &.loading::after {
+                        content: "Cargando";
+                        position: absolute;
+                        width: 100%;
+                        height: 12px;
+                        top: calc(50% - 6px);
+                        left: 0;
+                        text-align: center;
+                    }
+                }
+            }
+    
+            .footer-progress-spinner {
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                align-content: flex-end;
+                align-items: baseline;
+                position: relative;
+                margin: 1em auto 0;
+                text-align: right;
+
+                button, a {
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+
+.table-hidden {
+    display: none!important;
+}
+
+.hide {
+    display: none!important;
+}

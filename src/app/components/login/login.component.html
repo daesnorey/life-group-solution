@@ -1,0 +1,32 @@
+<article class="container">
+  <mat-card class="card">
+    <mat-card-header class="card-title">
+      <mat-card-title>
+        <h4 class="title">Ingresar a plataforma</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div class="div-form" [formGroup]="loginForm">
+        <mat-form-field appearance="outline" class="form-item">
+          <input matInput type="text" required="true" formControlName="username" />
+          <mat-label><mat-icon>person</mat-icon> Usuario</mat-label>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-item">
+          <input matInput type="password" required="true" formControlName="password" />
+          <mat-label><mat-icon>vpn_key</mat-icon> Contraseña</mat-label>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <button mat-raised-button color="primary" (click)="login()">Iniciar sesión</button>
+    </mat-card-actions>
+  </mat-card>
+  <footer class="container-footer">
+    <h5 class="title">Usuarios de prueba</h5>
+    <div class="div-container" *ngFor="let user of authService.usersDictionary">
+      <span class="fixed-width">{{user.username}}</span>
+      <span>{{user.password}}</span>
+      <button mat-button color="accent" class="button-container" (click)="use(user)">Usar</button>
+    </div>
+  </footer>
+</article>

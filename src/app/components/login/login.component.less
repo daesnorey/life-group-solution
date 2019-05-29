@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+    display: block;
+    width: 80%;
+    min-width: 300px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 3em;
+    height: 100%;
+    padding-bottom: 6em;
+
+    .card {
+        display: block;
+        width: 90%;
+        margin: auto;
+
+        .card-title {
+            display: block;
+            width: 100%;
+
+            .title {
+                text-align: center;
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .card-content {
+            .div-form {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                align-content: space-between;
+
+                .form-item {
+                    width: 80%;
+                }
+            }
+        }
+
+        .card-actions {
+            text-align: center;
+            margin-block-end: 1.33em;
+        }
+    }
+
+    .container-footer {
+        display: block;
+        width: 95%;
+        margin: auto;
+        text-align: center;
+
+        .div-container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: baseline;
+
+            .fixed-width {
+                width: 20%;
+            }
+        }
+    }
+}
