@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 export class ControlAccountComponent implements OnInit {
 
   public displayedColumns: string[] = ['policy', 'takerDocumentNumber', 'takerEntityName', 'insured'];
-  private dataSource: MatTableDataSource<Account>;
+  public dataSource: MatTableDataSource<Account>;
 
   public set accounts(accounts: Account[]) {
     this.dataSource = new MatTableDataSource(accounts);
