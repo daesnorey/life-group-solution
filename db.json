@@ -26,6 +26,38 @@
       "type": "intermediario"
     }
   ],
+  "menus": [
+    {
+      "name": "Inicio",
+      "path": "/",
+      "icon": "home",
+      "for": ["intermediario", "tomador"]
+    },
+    {
+      "name": "Cargue unico",
+      "path": "/col-101",
+      "icon": "description",
+      "for": ["tomador"]
+    },
+    {
+      "name": "Cargue masivo",
+      "icon": "library_books",
+      "path": "/bulk",
+      "for": ["tomador", "intermediario"]
+    },
+    {
+      "name": "Control de asegurados",
+      "icon": "supervised_user_circle",
+      "path": "/control/insured",
+      "for": ["tomador"]
+    },
+    {
+      "name": "Control de cuentas",
+      "icon": "supervised_user_circle",
+      "path": "/control/accounts",
+      "for": ["intermediario"]
+    }
+  ],
   "accounts": [
     {
       "id": "1",
