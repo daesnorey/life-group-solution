@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { reject } from 'q';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { ApiMethodEnum } from '../enums/api-method.enum';
-import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
