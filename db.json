@@ -64,6 +64,8 @@
       "middleman": "intermediario1",
       "taker": "tomador1",
       "policy": 57895856,
+      "takerEntityName": "Everlatam",
+      "takerDocumentNumber": "97825325",
       "insured": [
         {
           "id": "1",
@@ -132,6 +134,8 @@
       "middleman": "intermediario1",
       "taker": "tomador2",
       "policy": 57895857,
+      "takerEntityName": "Allatam",
+      "takerDocumentNumber": "95525325",
       "insured": [
         {
           "id": "7",
@@ -200,6 +204,8 @@
       "middleman": "intermediario2",
       "taker": "tomador3",
       "policy": 57895845,
+      "takerEntityName": "Peplatam",
+      "takerDocumentNumber": "78545325",
       "insured": [
         {
           "id": "13",

@@ -1,22 +1,45 @@
 import { Injectable } from '@angular/core';
 import { reject } from 'q';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
+import { ApiMethodEnum } from '../enums/api-method.enum';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public usersDictionary = [
-    {
-      username: 'admin',
-      password: 'Admin123'
-    },
-    {
-      username: 'usuario1',
-      password: 'Usuario123'
+  private persistentLoginListeners = [];
+  private loginListeners = [];
+  private logoffListeners = [];
+
+  private cacheUsers: [{username: string, password: string, type: string}];
+
+  /**
+   * gets users
+   */
+  public get usersDictionary():
+    [{username: string, password: string, type: string}] | Promise<[{username: string, password: string, type: string}]> {
+    if (this.cacheUsers) {
+      return this.cacheUsers;
     }
-  ];
+
+    return new Promise((resolve, onReject) => {
+      this.apiService
+      .get(ApiMethodEnum.API_METHOD_USERS)
+      .subscribe(res => {
+        const users = res as [{username: string, password: string, type: string}];
+        this.cacheUsers = users;
+        resolve(this.cacheUsers);
+      }, error => {
+        console.log(error);
+        onReject(error);
+      }, () => {
+        console.log('completed');
+      });
+    });
+  }
 
   public get isLogged(): boolean {
     return this.getIsLogged();
@@ -30,7 +53,15 @@ export class AuthService {
     return '';
   }
 
-  constructor(private router: Router) { }
+  public get type(): string {
+    const type = localStorage.getItem('type');
+    if (type) {
+      return atob(type);
+    }
+    return '';
+  }
+
+  constructor(private router: Router, private apiService: ApiService) { }
 
   private getIsLogged(): boolean {
     return this.username && this.username.length > 0;
@@ -42,19 +73,24 @@ export class AuthService {
    * @param password account key phrase
    */
   public login(username: string, password: string): Promise<boolean> {
-    return new Promise((resolve, _) => {
-      const userFinded = this.usersDictionary.find(
-        item => item.username === username.trim().toLocaleLowerCase() && item.password === password.trim()
-      );
-
-      const isDefined = userFinded !== undefined;
-
-      setTimeout(() => {
-        if (isDefined) {
-          localStorage.setItem('username', btoa(username));
+    return new Promise((resolve, onReject) => {
+      this.apiService.get(ApiMethodEnum.API_METHOD_USERS, [
+        {key: 'username', value: username}, {key: 'password', value: password}
+      ]).subscribe(res => {
+        if (res && res instanceof Array && res.length > 0) {
+          if (res[0].username === username) {
+            localStorage.setItem('username', btoa(username));
+            localStorage.setItem('type', btoa(res[0].type));
+            this.fireListeners(true);
+            resolve(true);
+            return;
+          }
         }
-        resolve(isDefined);
-      }, 1500);
+
+        resolve(false);
+      }, (error) => {
+        onReject(error);
+      });
     });
   }
 
@@ -63,6 +99,43 @@ export class AuthService {
    */
   public logout() {
     localStorage.removeItem('username');
+    localStorage.removeItem('type');
+    this.fireListeners(false);
     this.router.navigate(['/login']);
+  }
+
+  /**
+   * Adds callback listener
+   * @param callback login listener
+   */
+  public onLogout(callback: () => void) {
+    this.logoffListeners.push(callback);
+  }
+
+  /**
+   * Adds callback listener
+   * @param callback login listener
+   */
+  public onLogin(callback: () => void, isPersistent = false) {
+    if (isPersistent) {
+      this.persistentLoginListeners.push(callback);
+    } else {
+      this.loginListeners.push(callback);
+    }
+  }
+
+  /**
+   * Fires listeners
+   */
+  private fireListeners(loginEvent: boolean) {
+    const listeners = loginEvent ? this.loginListeners : this.logoffListeners;
+    for (const listener of (listeners || [])) {
+      listener();
+    }
+
+    const persistentListeners = loginEvent ? this.persistentLoginListeners : [];
+    for (const listener of (persistentListeners || [])) {
+      listener();
+    }
   }
 }

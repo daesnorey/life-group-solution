@@ -21,11 +21,18 @@
       <button mat-raised-button color="primary" (click)="login()">Iniciar sesión</button>
     </mat-card-actions>
   </mat-card>
-  <footer class="container-footer">
+  <footer class="container-footer" *ngIf="usersDictionary">
     <h5 class="title">Usuarios de prueba</h5>
-    <div class="div-container" *ngFor="let user of authService.usersDictionary">
+    <div class="div-container">
+      <span class="fixed-width">Usuario</span>
+      <span>Contraseña</span>
+      <span>Tipo</span>
+      <button mat-button color="accent" class="button-container" style="opacity: 0">Usar</button>
+    </div>
+    <div class="div-container" *ngFor="let user of usersDictionary">
       <span class="fixed-width">{{user.username}}</span>
       <span>{{user.password}}</span>
+      <span>{{user.type}}</span>
       <button mat-button color="accent" class="button-container" (click)="use(user)">Usar</button>
     </div>
   </footer>

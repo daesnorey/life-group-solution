@@ -18,6 +18,10 @@ import { Col101FormComponent } from './components/col101-form/col101-form.compon
 import { BulkUploadComponent } from './components/bulk-upload/bulk-upload.component';
 import { BeneficiariesTableComponent } from './components/col101-form/beneficiaries-table/beneficiaries-table.component';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ControlComponent } from './components/control/control.component';
+import { ControlAccountComponent } from './components/control/control-account/control-account.component';
+import { ControlInsuredComponent } from './components/control/control-insured/control-insured.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +30,14 @@ import { LoginComponent } from './components/login/login.component';
     Col101FormComponent,
     BulkUploadComponent,
     BeneficiariesTableComponent,
-    LoginComponent
+    LoginComponent,
+    ControlComponent,
+    ControlAccountComponent,
+    ControlInsuredComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

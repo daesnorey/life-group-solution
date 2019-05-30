@@ -1,14 +1,16 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { ControlAccountsService } from 'src/app/services/control-accounts.service';
 
 @Component({
   selector: 'app-col101-form',
   templateUrl: './col101-form.component.html',
   styleUrls: ['./col101-form.component.less']
 })
-export class Col101FormComponent implements OnInit, AfterViewInit {
+export class Col101FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public header = [
     {
@@ -36,18 +38,25 @@ export class Col101FormComponent implements OnInit, AfterViewInit {
   constructor(
     private formBuilder: FormBuilder,
     private loadingService: LoadingService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: ActivatedRoute,
+    private controlAccountsService: ControlAccountsService
     ) {
     this.col101Form = this.createCol10FormGroup();
   }
 
   ngOnInit() {
+    this.setFormData();
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.loadingService.isLoading = false;
     }, 1000);
+  }
+
+  ngOnDestroy() {
+    this.controlAccountsService.resetAccountForCol101();
   }
 
   get dateCompletion(): FormControl {
@@ -64,7 +73,7 @@ export class Col101FormComponent implements OnInit, AfterViewInit {
 
   private createCol10FormGroup(): FormGroup {
     return this.formBuilder.group({
-      dateCompletion: new FormControl('', [Validators.required]),
+      dateCompletion: new FormControl(new Date(), [Validators.required]),
       actionForm: new FormControl('', Validators.required),
       policyNumber: new FormControl({value: '', disabled: true}),
       takerEntityName: new FormControl('', [Validators.required, Validators.minLength(10)]),
@@ -109,6 +118,27 @@ export class Col101FormComponent implements OnInit, AfterViewInit {
         whichDisease: new FormControl({value: '', disabled: true})
       }),
     });
+  }
+
+  private setFormData() {
+    const account = this.controlAccountsService.getAccountForCol101();
+    if (account) {
+      const insured = account.insured[0];
+      this.col101Form.get('dateCompletion').disable();
+      this.col101Form.get('actionForm').patchValue('asegurado');
+      this.col101Form.get('actionForm').disable();
+      this.col101Form.get('policyNumber').patchValue(account.policy);
+      this.col101Form.get('takerEntityName').patchValue(account.takerEntityName);
+      this.col101Form.get('takerEntityName').disable();
+      this.col101Form.get('takerDocumentNumber').patchValue(account.takerDocumentNumber);
+      this.col101Form.get('takerDocumentNumber').disable();
+      this.col101Form.get('applicantDocumentType').patchValue(insured.docType);
+      this.col101Form.get('applicantDocumentNumber').patchValue(insured.docNumber);
+      this.col101Form.get('applicantFirstLastName').patchValue(insured.firstLastName);
+      this.col101Form.get('applicantSecondLastName').patchValue(insured.secondLastName);
+      this.col101Form.get('applicantName').patchValue(insured.name);
+      this.col101Form.get('applicantSex').patchValue(insured.gender);
+    }
   }
 
   public submitCol101(): void {
@@ -159,5 +189,12 @@ export class Col101FormComponent implements OnInit, AfterViewInit {
       }
       control.markAsTouched();
     }
+  }
+
+  /**
+   * seek insured info
+   */
+  private seekInsuredInfo(policy: number, insuredId: string) {
+
   }
 }

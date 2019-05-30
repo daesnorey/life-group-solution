@@ -13,10 +13,11 @@ import { MatSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  public usersDictionary: [{username: string, password: string, type: string}];
 
   constructor(
     private loadingService: LoadingService,
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router,
     private matSnackBar: MatSnackBar
   ) {
@@ -27,6 +28,18 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    const tmpUsers = this.authService.usersDictionary;
+    if (tmpUsers instanceof Promise) {
+      tmpUsers
+        .then(users => {
+          this.usersDictionary = users;
+        })
+        .catch((reason) => {
+          console.log(reason);
+        });
+    } else {
+      this.usersDictionary = tmpUsers;
+    }
   }
 
   public login() {
