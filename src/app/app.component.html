@@ -1,13 +1,15 @@
 <mat-progress-bar class="progress-bar" mode="indeterminate" *ngIf="loadingService.isLoading"></mat-progress-bar>
-<aside class="aside" *ngIf="authService.isLogged && mobileQuery.matches">
-    <button mat-icon-button routerLink="/" *ngIf="this.location.path()">
+<aside class="aside" [class.hidden]="!authService.isLogged || !mobileQuery.matches">
+    <button class="flex-left" mat-icon-button routerLink="/" *ngIf="this.location.path()">
         <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <a class="float-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
+    <a class="flex-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
 </aside>
-<mat-toolbar *ngIf="authService.isLogged && !mobileQuery.matches">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <a class="float-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
+<mat-toolbar [class.hidden]="!authService.isLogged || mobileQuery.matches">
+    <nav class="aside">
+        <button class="flex-left" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <a class="flex-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
+    </nav>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #snav mode="over">

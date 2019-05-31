@@ -4,16 +4,25 @@
 }
 
 .aside {
-    display: block;
     position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: baseline;
     width: 100%;
     background: #fff;
+
+    .flex-left {
+        align-self: flex-start;
+    }
+
+    .flex-right {
+        align-self: flex-end;
+        margin-left: auto;
+    }
 }
 
-.float-right {    
-    margin-left: auto;
-    z-index: 1000;
-    display: block;
-    margin-right: 0;
-    width: 120px;
+.hidden {
+    display: none;
 }

@@ -20,6 +20,11 @@
         width: 90%;
     }
 
+    @media all and (orientation:landscape) {
+        margin-top: 1em;
+        height: 60vh;
+    }
+
     .file-upload-article {
         display: flex;
         flex-flow: row nowrap;
@@ -48,11 +53,16 @@
                 span {
                     position: absolute;
                     width: 100%;
+                    height: 100%;
                     text-align: center;
                     left: 0;
                     top: calc(25% - 12px);
                     user-select: none;
                     pointer-events: none;
+
+                    @media all and (orientation:landscape) {
+                        top: 10%;
+                    }
 
                     mat-icon {
                         height: 100%;
@@ -111,10 +121,6 @@
             }
         }
     }
-}
-
-.table-hidden {
-    display: none!important;
 }
 
 .hide {
