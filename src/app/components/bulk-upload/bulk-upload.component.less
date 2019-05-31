@@ -1,3 +1,5 @@
+@phone-down: ~'(max-width: 500px)';
+
 .section-container {
     display: block;
     margin:auto;
@@ -13,6 +15,10 @@
     margin: auto;
     margin-top: 5em;
     margin-bottom: 0;
+
+    @media @phone-down {
+        width: 90%;
+    }
 
     .file-upload-article {
         display: flex;

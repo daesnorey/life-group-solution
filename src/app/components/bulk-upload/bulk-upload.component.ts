@@ -47,7 +47,7 @@ export class BulkUploadComponent implements OnInit {
     if (index >= 10) {
       if (Math.round(Math.random()) === 1) {
         this.hasErrors = true;
-        this.exportTableToExcel();
+        this.downloadLink._elementRef.nativeElement.download = `${new Date().getTime()}_errors`;
         this.snackBar.open('Se han encontrado errores en el archivo', 'Entendido', {
           duration: 5000
         });
@@ -62,33 +62,5 @@ export class BulkUploadComponent implements OnInit {
     setTimeout(_ => {
       this.uploadFiles(index + 1);
     }, 500);
-  }
-
-  /**
-   * Exports table to excel
-   */
-  private exportTableToExcel() {
-    const dataType = 'application/vnd.ms-excel';
-    const tableSelect = this.tableErrors;
-    const tableHTML = tableSelect.nativeElement.outerHTML.replace(/ /g, '%20');
-
-    // Specify file name
-    const filename = 'errors.xls';
-
-    if (navigator.msSaveOrOpenBlob) {
-      const blob = new Blob(['ufeff', tableHTML], {
-          type: dataType
-      });
-      navigator.msSaveOrOpenBlob(blob, filename);
-    } else {
-      // Create a link to the file
-      this.downloadLink._elementRef.nativeElement.href = 'data:' + dataType + ', ' + tableHTML;
-      // Setting the file name
-      this.downloadLink._elementRef.nativeElement.download = filename;
-      setTimeout(_ => {
-        // triggering the function
-        this.downloadLink._elementRef.nativeElement.click();
-      }, 100);
-    }
   }
 }

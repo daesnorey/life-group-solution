@@ -10,41 +10,10 @@
           <mat-progress-spinner [class.loading]="uploadProgress < 100" class="progress-spinner" color="primary" mode="determinate" [value]="uploadProgress"></mat-progress-spinner>
         </section>
         <footer class="footer-progress-spinner">
-          <a color="accent" mat-raised-button [disabled]="!hasErrors" [class.hide]="!hasErrors" #downloadLink href=".">Descargar Errores</a>
+          <a color="accent" mat-raised-button [disabled]="!hasErrors" [class.hide]="!hasErrors" #downloadLink href="http://tux-designs.com/group-life/errors/bulk_errors.xlsx">Descargar Errores</a>
           <button mat-raised-button color="primary" [disabled]="uploadProgress < 100" (click)="loading = false; uploadProgress = 0">Terminar</button>
         </footer>
       </article>
     </article>
   </mat-card>
-  <table class="table-hidden" #tableErrors>
-    <thead>
-      <tr>
-        <th>Campo</th>
-        <th>Identificación</th>
-        <th>Error</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Nombre</td>
-        <td>10136445752</td>
-        <td>Campo no puede ir vacio</td>
-      </tr>
-      <tr>
-        <td>Apellido</td>
-        <td>1010185752</td>
-        <td>Campo no puede exceder los 50 caracteres</td>
-      </tr>
-      <tr>
-        <td>Edad</td>
-        <td>10487554252</td>
-        <td>Campo debe ser numerico</td>
-      </tr>
-      <tr>
-        <td>Fecha nacimiento</td>
-        <td>78564561</td>
-        <td>Formato no valido</td>
-      </tr>
-    </tbody>
-  </table>
 </section>
