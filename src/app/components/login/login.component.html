@@ -21,19 +21,33 @@
       <button mat-raised-button color="primary" (click)="login()">Iniciar sesión</button>
     </mat-card-actions>
   </mat-card>
-  <footer class="container-footer" *ngIf="usersDictionary">
+  <footer class="container-footer" *ngIf="dataSource">
     <h5 class="title">Usuarios de prueba</h5>
-    <div class="div-container">
-      <span class="fixed-width">Usuario</span>
-      <span>Contraseña</span>
-      <span>Tipo</span>
-      <button mat-button color="accent" class="button-container" style="opacity: 0">Usar</button>
-    </div>
-    <div class="div-container" *ngFor="let user of usersDictionary">
-      <span class="fixed-width">{{user.username}}</span>
-      <span>{{user.password}}</span>
-      <span>{{user.type}}</span>
-      <button mat-button color="accent" class="button-container" (click)="use(user)">Usar</button>
-    </div>
+    <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+      <ng-container matColumnDef="username" sticky>
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef> Contreseña </th>
+        <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="button" >
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button color="accent" class="button-container col-small" (click)="use(element)">Usar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </footer>
 </article>

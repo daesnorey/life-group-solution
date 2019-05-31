@@ -3,7 +3,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoadingService } from 'src/app/services/loading.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource } from '@angular/material';
+
+interface User {
+  username: string;
+  password: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -13,7 +19,8 @@ import { MatSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-  public usersDictionary: [{username: string, password: string, type: string}];
+  public dataSource: MatTableDataSource<User>;
+  public displayedColumns = ['username', 'password', 'type', 'button'];
 
   constructor(
     private loadingService: LoadingService,
@@ -32,13 +39,13 @@ export class LoginComponent implements OnInit {
     if (tmpUsers instanceof Promise) {
       tmpUsers
         .then(users => {
-          this.usersDictionary = users;
+          this.dataSource = new MatTableDataSource(users);
         })
         .catch((reason) => {
           console.log(reason);
         });
     } else {
-      this.usersDictionary = tmpUsers;
+      this.dataSource = new MatTableDataSource(tmpUsers);
     }
   }
 

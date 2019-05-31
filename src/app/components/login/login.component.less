@@ -1,3 +1,5 @@
+@phone-down: ~'(max-width: 400px)';
+
 .container {
     position: relative;
     display: block;
@@ -8,6 +10,10 @@
     margin-top: 3em;
     height: 100%;
     padding-bottom: 6em;
+
+    @media @phone-down {
+        width: 100%;
+    }
 
     .card {
         display: block;
@@ -49,16 +55,37 @@
         width: 95%;
         margin: auto;
         text-align: center;
+        min-width: 335px;
 
-        .div-container {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: baseline;
-            font-size: 12px;
+        overflow: auto;
 
-            .fixed-width {
-                width: 20%;
+        @media @phone-down {
+            width: 100%;
+        }
+
+        .table {
+            max-width: 100%;
+            width: 100%;
+            text-align: center;
+
+            th.mat-header-cell {
+                text-align: center;
+            }
+
+            .mat-table-sticky:first-child {
+                border-right: 1px solid #e0e0e0;
+            }
+
+            .mat-table-sticky:last-child {
+                border-left: 1px solid #e0e0e0;
+                padding-right: 8px;
+                padding-left: 8px;
+            }
+
+            td {
+                @media @phone-down {
+                    font-size: 10px;
+                }
             }
         }
     }
