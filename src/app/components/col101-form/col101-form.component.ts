@@ -144,11 +144,16 @@ export class Col101FormComponent implements OnInit, AfterViewInit, OnDestroy {
   public submitCol101(): void {
     if (this.col101Form.invalid) {
       this.snackBar.open('El formulario tiene errores, por favor revisar', 'Entendido', {
-        duration: 5000
+        duration: 5000,
+        horizontalPosition: 'end',
+        verticalPosition: 'top'
       });
       this.showFormErrors(this.col101Form);
     } else {
-      this.snackBar.open('Solicitud procesada correctamente', 'Cerrar');
+      this.snackBar.open('Solicitud procesada correctamente', 'Cerrar', {
+        horizontalPosition: 'end',
+        verticalPosition: 'top'
+      });
       this.col101Form.reset();
       this.resetForm(this.col101Form);
     }
@@ -189,12 +194,5 @@ export class Col101FormComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       control.markAsTouched();
     }
-  }
-
-  /**
-   * seek insured info
-   */
-  private seekInsuredInfo(policy: number, insuredId: string) {
-
   }
 }

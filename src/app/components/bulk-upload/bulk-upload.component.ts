@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
-import { FormControl } from '@angular/forms';
 import { MatAnchor, MatSnackBar } from '@angular/material';
 
 @Component({
@@ -49,11 +48,15 @@ export class BulkUploadComponent implements OnInit {
         this.hasErrors = true;
         this.downloadLink._elementRef.nativeElement.download = `${new Date().getTime()}_errors`;
         this.snackBar.open('Se han encontrado errores en el archivo', 'Entendido', {
-          duration: 5000
+          duration: 5000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top'
         });
       } else {
         this.snackBar.open('Archivo cargado exitosamente', 'Entendido', {
-          duration: 5000
+          duration: 5000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top'
         });
       }
       return;
@@ -61,6 +64,6 @@ export class BulkUploadComponent implements OnInit {
 
     setTimeout(_ => {
       this.uploadFiles(index + 1);
-    }, 500);
+    }, 100);
   }
 }

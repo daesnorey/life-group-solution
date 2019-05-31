@@ -60,17 +60,23 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']);
           } else {
             this.matSnackBar.open('Usuario y/o contraseña erroneos', 'Cerrar', {
-              duration: 10000
+              duration: 10000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top'
             });
           }
         }, (reason) => {
           this.matSnackBar.open(reason, 'Cerrar', {
-            duration: 10000
+            duration: 10000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top'
           });
         })
         .catch((reason) => {
           this.matSnackBar.open(reason, 'Cerrar', {
-            duration: 10000
+            duration: 10000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top'
           });
         })
         .finally(() => {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Account, ControlAccountsService, Insured } from 'src/app/services/control-accounts.service';
-import { MatTableDataSource, MatTab } from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({

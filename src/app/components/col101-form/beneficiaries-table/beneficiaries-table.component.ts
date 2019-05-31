@@ -20,8 +20,8 @@ const ELEMENT_DATA: Beneficiary[] = [
 })
 export class BeneficiariesTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['surname', 'lastname', 'name', 'document', 'percent', 'kinship'];
-  dataSource = ELEMENT_DATA;
+  public displayedColumns: string[] = ['surname', 'lastname', 'name', 'document', 'percent', 'kinship'];
+  public dataSource = ELEMENT_DATA;
 
   constructor() { }
 
