@@ -138,6 +138,10 @@ export class Col101FormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.col101Form.get('applicantSecondLastName').patchValue(insured.secondLastName);
       this.col101Form.get('applicantName').patchValue(insured.name);
       this.col101Form.get('applicantSex').patchValue(insured.gender);
+
+      if (insured.col101Responded) {
+        this.col101Form.disable();
+      }
     }
   }
 

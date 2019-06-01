@@ -10,7 +10,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class ControlInsuredComponent implements OnInit {
 
-  public displayedColumns: string[] = ['name', 'firstLastName', 'secondLastName', 'link', 'col101Responded'];
+  public displayedColumns: string[] = ['name', 'firstLastName', 'secondLastName', 'link', 'invitation', 'col101Responded'];
   public dataSource: MatTableDataSource<Insured>;
   public policy: number;
 

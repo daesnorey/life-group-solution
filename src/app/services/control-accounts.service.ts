@@ -119,7 +119,7 @@ export class ControlAccountsService {
         const accounts = res as Account[];
         if (accounts && accounts.length > 0) {
           const account = accounts[0];
-          const insured = account.insured.find((current) => !current.col101Responded && current.id === `${params.insured_id}`);
+          const insured = account.insured.find((current) => current.id === `${params.insured_id}`);
           if (insured) {
             account.insured = [insured];
             this.accountForCol101 = account;

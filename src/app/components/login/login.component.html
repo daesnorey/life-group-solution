@@ -18,7 +18,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions class="card-actions">
-      <button mat-raised-button color="primary" (click)="login()">Iniciar sesión</button>
+      <button mat-raised-button [disabled]="loginForm.disabled" color="primary" (click)="login()">Iniciar sesión</button>
     </mat-card-actions>
   </mat-card>
   <footer class="container-footer" *ngIf="dataSource">

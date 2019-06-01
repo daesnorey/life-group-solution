@@ -176,7 +176,7 @@
     <!-- <span class="col101-container-form-x-10 d-block">
       <span class="col101-container-form-x-10 d-block">En caso de haber padecido alguna enfermedad de las mencionadas anteriormente explique:</span>
     </span> -->
-    <footer class="col101-footer">
+    <footer class="col101-footer" *ngIf="col101Form.enabled">
       <mat-checkbox #chkDeshabilitar color="primary" class="col101-container-form-x-3 d-inline-block col101-container-form-p-5 col101-container-form-sp-10" style="display: none;">Deshabilitar boton</mat-checkbox>
       <button type="submit" [disabled]="chkDeshabilitar.checked && col101Form.invalid" mat-raised-button color="primary" class="d-block">Validar información</button>
     </footer>

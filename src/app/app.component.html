@@ -5,11 +5,9 @@
     </button>
     <a class="flex-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
 </aside>
-<mat-toolbar [class.hidden]="!authService.isLogged || mobileQuery.matches">
-    <nav class="aside">
-        <button class="flex-left" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <a class="flex-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
-    </nav>
+<mat-toolbar class="aside" [class.hidden]="!authService.isLogged || mobileQuery.matches">
+    <button class="flex-left" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <a class="flex-right" mat-button (click)="authService.logout()">Cerrar sesión</a>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #snav mode="over">
